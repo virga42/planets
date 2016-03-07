@@ -11,7 +11,7 @@
 
 (in-package :planets2)
 
-(load "~/bottega/exercises/planet-model.lisp")
+(load "~/bottega/planets/planet-model.lisp")
 
 (defparameter *update-interval* 10)
 (defparameter x-origin 300)

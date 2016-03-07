@@ -24,20 +24,6 @@
     (setf (degree p) new-degree)    (setf (coords p) new-coords)
     (set-coords canvas (image-item p) new-coords)))
 
-
-(defgeneric draw-planet (planet canvas))
-(defmethod draw-planet ((p planet) canvas)
-  (let* ((coords (calculate-coords (diameter p) (degree p) (multiplier p))))
-    (setf (coords p) coords)
-    (setf (image-item p) (make-oval canvas (first coords)
-				    (second coords)
-				    (third coords)
-				    (fourth coords)))))
-
 (defclass chord ()
   ((image-item :accessor image-item)))
 
-(defgeneric draw-chord (chord planet planet canvas))
-(defmethod draw-chord ((a-chord chord) (first-planet planet) (second-planet planet) canvas)
-  (setf (image-item a-chord) (make-line canvas (append (centered-coords (coords first-planet))
-						       (centered-coords (coords second-planet))))))
